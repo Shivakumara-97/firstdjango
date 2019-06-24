@@ -15,17 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from home.views import form_view,booksearch,deletebook
 
-
-from home.views import home_view
-from home.views import design
-
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
-    path('',home_view),
-    path('design/',design),
-    path('admin/', admin.site.urls)
-]    
+    path('form/',form_view),
+   #path('',form_view),
+    # path('',form_view),
+    path('admin/', admin.site.urls),
+    #path('',home_view),
+    path('',booksearch),
+    path('deletebook/<id>',deletebook),
+   # path('editbook/<id>',deletebook),
 
-urlpatterns+=staticfiles_urlpatterns()
 
+]
